@@ -26,16 +26,16 @@ tell application "System Events"
 	
 end tell
 
-set resultMessage to resultMessage & "Login Items: "
-repeat with a from 1 to length of loginItemsList
-	set theCurrentListItem to item a of loginItemsList
-	if a > 1 then
-		set resultMessage to resultMessage & ", "
-	end if
-	set resultMessage to resultMessage & theCurrentListItem
-end repeat
-
 -- Display message if anything was done
 if removedCount > 0 then
+	set resultMessage to resultMessage & "Login Items: "
+	repeat with a from 1 to length of loginItemsList
+		set theCurrentListItem to item a of loginItemsList
+		if a > 1 then
+			set resultMessage to resultMessage & ", "
+		end if
+		set resultMessage to resultMessage & theCurrentListItem
+	end repeat
+	
 	display dialog resultMessage
 end if
