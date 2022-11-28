@@ -4,7 +4,7 @@ set resultMessage to ""
 set removedCount to 0
 
 -- Feel add items here
-set annoyingList to {"Microsoft Edge", "Google Chrome"}
+set annoyingList to {"Microsoft Edge", "Google Chrome", "Microsoft SharePoint.app"}
 
 -- Loop through list
 tell application "System Events"
