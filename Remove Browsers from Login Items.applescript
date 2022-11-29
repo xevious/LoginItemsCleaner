@@ -16,7 +16,7 @@ tell application "System Events"
 		if loginItemsList contains annoyingItem then
 			delete login item annoyingItem
 			set removedCount to removedCount + 1
-			set resultMessage to resultMessage & " " & annoyingItem & " Removed. 
+			set resultMessage to resultMessage & (removedCount as string) & ": " & annoyingItem & " Removed. 
 "
 		end if
 	end repeat
@@ -28,7 +28,8 @@ end tell
 
 -- Display message if anything was done
 if removedCount > 0 then
-	set resultMessage to resultMessage & "Login Items: "
+	set resultMessage to resultMessage & "
+	Remaining Login Items: "
 	repeat with a from 1 to length of loginItemsList
 		set theCurrentListItem to item a of loginItemsList
 		if a > 1 then
@@ -37,5 +38,6 @@ if removedCount > 0 then
 		set resultMessage to resultMessage & theCurrentListItem
 	end repeat
 	
-	display dialog resultMessage
+	display notification resultMessage with title "Login Items Cleaner" subtitle "Item(s) Removed: " & (removedCount as string) sound name "Frog"
+	
 end if
